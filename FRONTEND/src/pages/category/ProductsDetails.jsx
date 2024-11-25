@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { BACKENDURL } from '../../../../ADMIN/src/App';
 import { toast } from 'react-toastify';
 
 const ProductsDetails = () => {
@@ -12,7 +11,7 @@ const ProductsDetails = () => {
 
     const fetchProduct = async () => {
         try {
-            const response = await axios.post(`${BACKENDURL}/api/products/productinfo`, { id });
+            const response = await axios.post('https://ecommerce-nytra-backend2.onrender.com' + '/api/products/productinfo', { id });
             setProduct(response.data.product);
         } catch (error) {
             toast.error(error.response ? error.response.data.message : 'Error fetching products');
@@ -34,7 +33,7 @@ const ProductsDetails = () => {
             }
 
             const response = await axios.post(
-                `${BACKENDURL}/api/cart/add`,
+                'https://ecommerce-nytra-backend2.onrender.com'+'/api/cart/add',
                 { productId: product._id, quantity: 1 },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
