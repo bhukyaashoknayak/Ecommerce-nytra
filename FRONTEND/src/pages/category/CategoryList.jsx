@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, NavLink, useNavigate } from 'react-router-dom';
-import { BACKENDURL } from '../../../../ADMIN/src/App';
 import { toast } from 'react-toastify';
 
 const CategoryList = () => {
@@ -13,7 +12,7 @@ const CategoryList = () => {
     // get the data from database
     const getproductdata = async () => {
         try {
-            const response = await axios.get(BACKENDURL + '/api/products/productlist');
+            const response = await axios.get('https://ecommerce-nytra-backend2.onrender.com' + '/api/products/productlist');
             setProducts(response.data.products);
         } catch (error) {
             toast.error(error.response ? error.response.data.message : 'Error fetching products');
