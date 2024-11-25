@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import axios from 'axios';
-import { BACKENDURL } from '../../../ADMIN/src/App';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const CheckOut = () => {
@@ -49,7 +48,7 @@ const CheckOut = () => {
             }));
 
             const response = await axios.post(
-                `${BACKENDURL}/api/orders/paymentcod`,
+                'https://ecommerce-nytra-backend2.onrender.com' + '/api/orders/paymentcod',
                 { items: orderItems, amount, address },
                 {
                     headers: {
