@@ -13,7 +13,7 @@ const Login = () => {
         const data = { email, password };
 
         try {
-            const response = await axios.post("https://ecommerce-nytra-backend2.onrender.com" + '/api/user/login', data);
+            const response = await axios.post('https://ecommerce-nytra-backend2.onrender.com' + '/api/user/login', data);
             
             if (response.data.success) {
                 const { token } = response.data;
