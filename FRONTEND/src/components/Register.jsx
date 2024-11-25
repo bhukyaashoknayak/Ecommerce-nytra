@@ -26,7 +26,7 @@ const Register = () => {
 
         try {
 
-            const response = await axios.post("https://ecommerce-nytra-backend2.onrender.com"+ '/api/user/register', data);
+            const response = await axios.post('https://ecommerce-nytra-backend2.onrender.com'+ '/api/user/register', data);
             if (response.data.success) {
                 settoken(response.data.token);
                 localStorage.setItem('token', response.data.token);
