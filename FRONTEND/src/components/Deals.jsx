@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { BACKENDURL } from '../../../ADMIN/src/App';
-console.log(BACKENDURL);
+
 
 const Deals = () => {
     const navigate = useNavigate();
@@ -11,9 +10,8 @@ const Deals = () => {
 
     const getproductdata = async () => {
         try {
-            const response = await axios.get(BACKENDURL + '/api/products/productlist');
+            const response = await axios.get("https://ecommerce-nytra-backend2.onrender.com" + '/api/products/productlist');
             setproduct(response.data.products);
-            // console.log(response.data.products);
         } catch (error) {
             toast.error(error.response ? error.response.data.message : 'Error fetching products');
         }
