@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { BACKENDURL } from '../../../ADMIN/src/App';
 import { FaTrashAlt } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 
@@ -12,7 +11,7 @@ const Cart = () => {
         const getCartData = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.get(BACKENDURL + '/api/cart/getdetails', {
+                const response = await axios.get('https://ecommerce-nytra-backend2.onrender.com' + '/api/cart/getdetails', {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setCartItems(response.data.cart);
@@ -34,7 +33,7 @@ const Cart = () => {
             if (item) {
                 const newQuantity = item.quantity + 1;
                 const response = await axios.post(
-                    `${BACKENDURL}/api/cart/update/${id}`,
+                    'https://ecommerce-nytra-backend2.onrender.com' + `/api/cart/update/${id}`,
                     { quantity: newQuantity },
                     {
                         headers: { Authorization: `Bearer ${token}` },
@@ -60,7 +59,7 @@ const Cart = () => {
             if (item && item.quantity > 1) {
                 const newQuantity = item.quantity - 1;
                 const response = await axios.post(
-                    `${BACKENDURL}/api/cart/update/${id}`,
+                    'https://ecommerce-nytra-backend2.onrender.com' + `/api/cart/update/${id}`,
                     { quantity: newQuantity },
                     {
                         headers: { Authorization: `Bearer ${token}` },
@@ -83,7 +82,7 @@ const Cart = () => {
         try {
             const token = localStorage.getItem('token');
             await axios.post(
-                `${BACKENDURL}/api/cart/remove/${id}`,
+                'https://ecommerce-nytra-backend2.onrender.com'+ `/api/cart/remove/${id}`,
                 {},
                 { headers: { Authorization: `Bearer ${token}` } }
             );
