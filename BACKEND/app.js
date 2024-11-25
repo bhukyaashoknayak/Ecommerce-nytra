@@ -13,19 +13,7 @@ const port = 8080;
 
 // Middleware
 app.use(express.json());
-
-app.use(
-    cors({
-        origin: (origin, callback) => {
-            if (allowedOrigins.includes(origin) || !origin) {
-                callback(null, true);
-            } else {
-                callback(new Error('Not allowed by CORS'));
-            }
-        },
-        credentials: true,
-    })
-);
+app.use(cors());
 
 connectdb();
 connectcloudinary();
