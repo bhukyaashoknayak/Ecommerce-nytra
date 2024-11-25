@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { CircleLoader } from 'react-spinners';
-import { BACKENDURL } from '../../../../ADMIN/src/App';
 import { toast } from 'react-toastify';
 
 const CollectionList = () => {
@@ -23,7 +22,7 @@ const CollectionList = () => {
     // Fetch product data from the backend
     const getproductdata = async () => {
         try {
-            const response = await axios.get(BACKENDURL + '/api/products/productlist');
+            const response = await axios.get('https://ecommerce-nytra-backend2.onrender.com' + '/api/products/productlist');
             setProductdata(response.data.products);
             setFilteredProducts(response.data.products);
         } catch (error) {
