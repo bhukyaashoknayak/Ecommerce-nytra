@@ -10,7 +10,7 @@ const Deals = () => {
 
     const getproductdata = async () => {
         try {
-            const response = await axios.get("https://ecommerce-nytra-backend2.onrender.com" + '/api/products/productlist');
+            const response = await axios.get('https://ecommerce-nytra-backend2.onrender.com' + '/api/products/productlist');
             setproduct(response.data.products);
         } catch (error) {
             toast.error(error.response ? error.response.data.message : 'Error fetching products');
