@@ -40,6 +40,14 @@ app.get('/', (req, res) => {
     res.send('API is working');
 });
 
+app.get('/', (req, res) => {
+    res.send('API is working');
+});
+
+app.get('/help', (req, res) => {
+    res.send('API is working for help');
+});
+
 app.listen(port, () => {
     console.log(`App is listening on port ${port}`);
 });
