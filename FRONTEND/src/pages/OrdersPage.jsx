@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { BACKENDURL } from "../../../ADMIN/src/App";
 
 const OrdersPage = () => {
     const [orders, setorders] = useState([]);
@@ -16,7 +15,7 @@ const OrdersPage = () => {
                     return;
                 }
 
-                const response = await axios.get(`${BACKENDURL}/api/orders/userorders`, {
+                const response = await axios.get('https://ecommerce-nytra-backend2.onrender.com' + '/api/orders/userorders', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
