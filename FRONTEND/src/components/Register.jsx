@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { BACKENDURL } from '../../../ADMIN/src/App';
 import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
@@ -27,7 +26,7 @@ const Register = () => {
 
         try {
 
-            const response = await axios.post(BACKENDURL + '/api/user/register', data);
+            const response = await axios.post("https://ecommerce-nytra-backend2.onrender.com"+ '/api/user/register', data);
             if (response.data.success) {
                 settoken(response.data.token);
                 localStorage.setItem('token', response.data.token);
