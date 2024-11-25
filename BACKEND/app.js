@@ -9,7 +9,7 @@ const cartRouter = require('./routers/cartrouter.js');
 const orderRouter = require('./routers/orderroute.js');
 const app = express();
 const port = 8080;
-const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174'];
+
 
 // Middleware
 app.use(express.json());
